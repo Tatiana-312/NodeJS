@@ -21,7 +21,7 @@ const copy = async () => {
     const destPath = path.join(__dirname, "files_copy");
 
     if (await isDirExist(destPath)) {
-      throw new Error();
+      throw new Error("FS operation failed");
     }
     await cp(srcPath, destPath, { recursive: true });
   } catch {
