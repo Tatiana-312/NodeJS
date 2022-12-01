@@ -1,18 +1,15 @@
-import { access, constants, writeFile } from "node:fs/promises";
-import { fileURLToPath } from "url";
-import path from "path";
-import { dirname } from "path";
-import { isExist } from "./customModules/exist.js";
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
+import { writeFile } from "node:fs/promises";
+import { isExist } from "./customModules/isExist.js";
+import { getPath } from "./customModules/getPath.js";
 
 const create = async () => {
   try {
-    const filePath = path.join(__dirname, "files", "fresh.txt");
+    const filePath = getPath(import.meta.url, "files", "fresh.txt");
+
     if (await isExist(filePath)) {
       throw new Error("FS operation failed");
     }
+
     await writeFile(filePath, "I am fresh and young");
   } catch {
     console.error("FS operation failed");

@@ -1,16 +1,11 @@
-import { access, constants, cp } from "node:fs/promises";
-import { fileURLToPath } from "url";
-import path from "path";
-import { dirname } from "path";
-import { isExist } from "./customModules/exist.js";
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
+import { cp } from "node:fs/promises";
+import { isExist } from "./customModules/isExist.js";
+import { getPath } from "./customModules/getPath.js";
 
 const copy = async () => {
   try {
-    const srcPath = path.join(__dirname, "files");
-    const destPath = path.join(__dirname, "files_copy");
+    const srcPath = getPath(import.meta.url, "files", '');
+    const destPath = getPath(import.meta.url, "files_copy", '');
 
     if (await isExist(destPath)) {
       throw new Error("FS operation failed");
