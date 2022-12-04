@@ -1,5 +1,5 @@
 import fs from "fs/promises";
-import { getPath } from "./customModules/getPath.js";
+import { getPath } from "../customModules/getPath.js";
 
 const rename = async () => {
   try {

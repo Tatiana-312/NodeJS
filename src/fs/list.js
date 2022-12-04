@@ -1,5 +1,5 @@
 import { readdir } from "node:fs/promises";
-import { getPath } from "./customModules/getPath.js";
+import { getPath } from "../customModules/getPath.js";
 
 const list = async () => {
   try {

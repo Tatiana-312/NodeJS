@@ -1,6 +1,6 @@
 import { writeFile } from "node:fs/promises";
-import { isExist } from "./customModules/isExist.js";
-import { getPath } from "./customModules/getPath.js";
+import { isExist } from "../customModules/isExist.js";
+import { getPath } from "../customModules/getPath.js";
 
 const create = async () => {
   try {

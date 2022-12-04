@@ -1,5 +1,5 @@
 import { rm } from "node:fs/promises";
-import { getPath } from "./customModules/getPath.js";
+import { getPath } from "../customModules/getPath.js";
 
 const remove = async () => {
   try {
