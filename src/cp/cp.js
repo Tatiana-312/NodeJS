@@ -1,5 +1,9 @@
+import { fork } from 'node:child_process';
+import { getPath } from '../customModules/getPath.js';
+
 const spawnChildProcess = async (args) => {
-    // Write your code here
+    const scriptPath = getPath(import.meta.url, "files", "script.js");
+    const childProcess = fork(scriptPath, args);
 };
 
-spawnChildProcess();
+spawnChildProcess(["a", "b", "c"]);
