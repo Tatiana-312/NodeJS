@@ -1,4 +1,5 @@
 import { Worker } from "worker_threads";
+import { getPath } from "../customModules/getPath.js";
 import os from "os";
 
 const performCalculations = async () => {
@@ -7,7 +8,7 @@ const performCalculations = async () => {
 
   const promises = cpu.map(() => {
     return new Promise((resolve, reject) => {
-      const worker = new Worker("./worker.js", {
+      const worker = new Worker(getPath(import.meta.url,"", "worker.js"), {
         workerData: initialNumber++,
       });
       worker.on("message", (result) => resolve(result));

@@ -12,7 +12,7 @@ const create = async () => {
 
     await writeFile(filePath, "I am fresh and young");
   } catch {
-    console.error("FS operation failed");
+    throw Error("FS operation failed");
   }
 };
 

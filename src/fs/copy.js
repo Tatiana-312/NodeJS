@@ -12,7 +12,7 @@ const copy = async () => {
     }
     await cp(srcPath, destPath, { recursive: true });
   } catch {
-    console.error("FS operation failed");
+    throw Error("FS operation failed");
   }
 };
 
